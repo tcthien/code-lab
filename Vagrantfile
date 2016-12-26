@@ -1,5 +1,5 @@
 Vagrant.configure(2) do |config|
-  config.vm.box = "tcthien/java-dev-env"
+  config.vm.box = "tcthien/java-dev-server"
 
   config.vm.provider "virtualbox" do |vb|
      vb.memory = "4096"
