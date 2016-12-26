@@ -1,8 +1,4 @@
 *.class
-*.log
-
-#vagrant generated file
-.vagrant
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -11,8 +7,6 @@
 *.jar
 *.war
 *.ear
-*.tar.gz
-*.zip
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
