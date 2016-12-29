@@ -1,2 +1,0 @@
-HOME_BIN="$HOME/bin"
-export PATH="$HOME_BIN/node-v7.3.0-linux-x64/bin:$PATH"
