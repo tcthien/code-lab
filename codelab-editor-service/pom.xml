@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.tcthien</groupId>
+		<groupId>com.tnp</groupId>
 		<artifactId>codelab</artifactId>
 		<version>1.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
@@ -24,7 +24,6 @@
 			<artifactId>rapidoid-quick</artifactId>
 			<version>5.2.8</version>
 		</dependency>
-		<!-- Used for org.rapidoid.spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -34,25 +33,6 @@
 
 	<build>
 		<plugins>
-			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>exec-maven-plugin</artifactId> 
-				<version>1.1.1</version> <executions> <execution> <phase>deploy</phase> <goals> 
-				<goal>java</goal> </goals> <configuration> <mainClass>${mainClass}</mainClass> 
-				</configuration> </execution> </executions> </plugin> <plugin> <artifactId>maven-jar-plugin</artifactId> 
-				<version>2.3</version> <configuration> <archive> <manifest> <mainClass>${mainClass}</mainClass> 
-				<addClasspath>true</addClasspath> <classpathPrefix>lib/</classpathPrefix> 
-				<classpathLayoutType>repository</classpathLayoutType> <classpathMavenRepositoryLayout>true</classpathMavenRepositoryLayout> 
-				</manifest> </archive> </configuration> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> 
-				<artifactId>maven-dependency-plugin</artifactId> <version>2.1</version> <executions> 
-				<execution> <id>copy-dependencies</id> <phase>package</phase> <goals> <goal>copy-dependencies</goal> 
-				</goals> <configuration> <outputDirectory>${project.build.directory}/${app.name}/lib</outputDirectory> 
-				<overWriteReleases>false</overWriteReleases> <overWriteSnapshots>false</overWriteSnapshots> 
-				<overWriteIfNewer>true</overWriteIfNewer> <useRepositoryLayout>true</useRepositoryLayout> 
-				<excludeArtifactIds></excludeArtifactIds> </configuration> </execution> <execution> 
-				<id>copy</id> <phase>process-resources</phase> <goals> <goal>copy</goal> 
-				</goals> <configuration> <artifactItems> <artifactItem> <groupId>org.apache.openejb</groupId> 
-				<artifactId>openejb-javaagent</artifactId> <version>3.0-beta-2</version> 
-				<outputDirectory>${project.build.directory}</outputDirectory> </artifactItem> 
-				</artifactItems> </configuration> </execution> </executions> </plugin> -->
 		</plugins>
 	</build>
 </project>

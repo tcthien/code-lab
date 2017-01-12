@@ -14,8 +14,11 @@ Vagrant.configure("2") do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "tcthien/java-dev-server"
 
+
   config.vm.synced_folder "C:/Users/admin/.m2/repository", "/share/mavenRepo"
   config.vm.synced_folder "", "/share/source"
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
+  
   
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -29,8 +32,11 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
+  config.vm.provision "shell", path: "provision.sh", privileged: false
   # config.vm.provision "shell", inline: <<-SHELL
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+  
 end
+
