@@ -6,12 +6,22 @@ Vagrant.configure("2") do |config|
     config.vm.synced_folder "", "/share/source"
 
     config.vm.network "private_network", ip: "192.168.100.100"
+    # MySQL Port
     config.vm.network "forwarded_port", guest: 3306, host: 3306
+    # Cassandra Port
     config.vm.network "forwarded_port", guest: 9042, host: 9042
-    config.vm.network "forwarded_port", guest: 7000, host: 7000
-    config.vm.network "forwarded_port", guest: 7001, host: 7001
-    config.vm.network "forwarded_port", guest: 9160, host: 9160
-
+    # Gateway
+    config.vm.network "forwarded_port", guest: 80, host: 80
+    # Eureka Dashboard
+    config.vm.network "forwarded_port", guest: 8761, host: 8761
+    # Hystrix Dashboard
+    config.vm.network "forwarded_port", guest: 9000, host: 9000
+    # Turbin Stream Source for Hystrix Dashboard
+    config.vm.network "forwarded_port", guest: 8989, host: 8989 
+    # RabbitMq
+    config.vm.network "forwarded_port", guest: 15672, host: 15672
+     
+    
     config.vm.provider "virtualbox" do |vb|
         vb.memory = "4096"
         vb.name = "codelab-server"
