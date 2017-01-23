@@ -1,0 +1,9 @@
+jdk:
+  - oraclejdk8
+script:
+  mvn verify
+after_failure:
+  - cat com.tts.codelab.codelab-config/target/surefire-reports/*.txt
+  - cat com.tts.codelab.codelab-registry/target/surefire-reports/*.txt
+  - cat com.tts.codelab.codelab-gateway/target/surefire-reports/*.txt
+  - cat com.tts.codelab.codelab-monitoring/target/surefire-reports/*.txt
