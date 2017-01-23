@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: codelab-registry
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+      username: ${CODELAB_USER}
+      password: ${CODELAB_PASS}
+      
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+  server:
+    wait-time-in-ms-when-sync-empty: 0

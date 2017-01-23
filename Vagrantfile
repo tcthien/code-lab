@@ -1,42 +1,29 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
 Vagrant.configure("2") do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
-
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "tcthien/java-dev-server"
+    config.vm.box = "tcthien/java-dev-server"
 
 
-  config.vm.synced_folder "C:/Users/admin/.m2/repository", "/share/mavenRepo"
-  config.vm.synced_folder "", "/share/source"
-  config.vm.network "forwarded_port", guest: 3306, host: 3306
-  
-  
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
-  config.vm.provider "virtualbox" do |vb|
-     vb.memory = "4096"
-     vb.name = "codelab-server"
-  end
+    config.vm.synced_folder "C:/Users/admin/.m2/repository", "/share/mavenRepo"
+    config.vm.synced_folder "", "/share/source"
 
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", path: "provision.sh", privileged: false
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-  # SHELL
-  
+    config.vm.network "private_network", ip: "192.168.100.100"
+    config.vm.network "forwarded_port", guest: 3306, host: 3306
+    config.vm.network "forwarded_port", guest: 9042, host: 9042
+    config.vm.network "forwarded_port", guest: 7000, host: 7000
+    config.vm.network "forwarded_port", guest: 7001, host: 7001
+    config.vm.network "forwarded_port", guest: 9160, host: 9160
+
+    config.vm.provider "virtualbox" do |vb|
+        vb.memory = "4096"
+        vb.name = "codelab-server"
+    end
+
+    config.vm.provision "shell", inline: <<-SHELL
+        #Add PASSWORD TO ENV
+        echo 'export CODELAB_USER="codelab"' >> ~/.bashrc
+        echo 'export CODELAB_PASS="codelab"' >> ~/.bashrc
+        echo 'export CODELAB_USER="codelab"' >> ~/.zshrc
+        echo 'export CODELAB_PASS="codelab"' >> ~/.zshrc
+    SHELL
+
 end
 

@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.tnp</groupId>
+    <groupId>com.tts.codelab</groupId>
     <artifactId>codelab</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     
     <name>codelab\codelab-root</name>
@@ -16,10 +16,18 @@
     </properties>
   
     <modules>
-        <module>codelab-editor-service</module>
-        <module>codelab-editor-ui</module>
-    </modules>
+		<module>codelab-config</module>
+        <module>codelab-registry</module>
+		<module>codelab-gateway</module>
+		<module>codelab-monitoring</module>
+		<!--
+		<module>auth-service</module>
+		<module>account-service</module>
+		<module>statistics-service</module>
+		<module>notification-service</module>-->
+	</modules>
 
+    <!--
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -28,6 +36,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    -->
     
     <build>
         <plugins>

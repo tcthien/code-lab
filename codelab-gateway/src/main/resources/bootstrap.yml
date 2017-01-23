@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: codelab-gateway
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+      password: ${CODELAB_PASS}
+      username: ${CODELAB_USER}
