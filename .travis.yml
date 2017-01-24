@@ -1,10 +1,18 @@
-language: java
-jdk:
-  - oraclejdk8
-script:
-  mvn verify
-after_failure:
-  - cat codelab-config/target/surefire-reports/*.txt
-  - cat codelab-registry/target/surefire-reports/*.txt
-  - cat codelab-gateway/target/surefire-reports/*.txt
-  - cat codelab-monitoring/target/surefire-reports/*.txt
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "r9pN71wIUkQP7BpzYq0aiXXk6tUbpI5dxTo5Z8D/18rJ3upteDXvTR13jdzOVi49uPtVQbegip5ZrFH/pI9dHjalXOUl3xR7yFDLmtH7/wsZPmnWkqa3dAXgh9HcKbYYfHz0PrI9OLZMlWmZuu9yrNqPzwHAp/7sMfWScJvTbtwS8r/hhoa2tOhlbMm/kERBL5kZM5GpPb7sIz3Iqs0qlDg1oz3+ajQZVk+feG2Z2mMU9quT5VHWqI39Rd9LFHZtuhREL2WfEmtb2Rs0fwac7lKk6g1UIywzWIqI4VStbwfjRpduHCgxdfetfqO2beYzIyTjfvFh0lVOGBRLkJN+W6331Qm/0Lh+Hkw7pOuvhlAy6BIzw1zAToZtAlp7RNthH015n1ng31aLdIgeSNo8m2xJ/jVMIEkg9YHICgP5JmnfkJvsgYLbXBOm/29KMz9jbCOLoOqHHDe5fwJ82TfyIbZwgfaLa9Q5wpnMwkLGO08dU6xITQb6wf054X1U06uGdHLWkSYTcOuYdmld/WGo1ekxyO+ccmdge3z4ssRhsWALiG5DdKuGuBn1RWL+Pg3DBS23wlhK8qzvL4vkEO2tEEokHHBMbs6CnImbMrapWmPzLmp80HCND7D6rM6Z11rq1B0cn95WHObTE9ZLb2A5ePHLpckv4TTHoZQxqax89Pg="
+
+before_install:
+      - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+addons:
+  coverity_scan:
+    project:
+      name: "tcthien/code-lab"
+      description: "Build submitted via Travis CI"
+    notification_email: thientran1986@gmail.com
+    build_command_prepend: "mvn clean"
+    build_command:   "mvn -DskipTests=true compile"
+    branch_pattern: coverity_scan
