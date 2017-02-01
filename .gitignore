@@ -4,6 +4,7 @@
 .classpath
 .project
 .settings/
+jenkins_home
 
 # Log file
 .log
