@@ -20,6 +20,7 @@
         <module>codelab-registry</module>
 		<module>codelab-gateway</module>
 		<module>codelab-monitoring</module>
+		<module>codelab-auth-service</module>
 		<!--
 		<module>auth-service</module>
 		<module>account-service</module>
