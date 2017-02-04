@@ -1,4 +1,4 @@
-# Code Lab
+# Codelab
 [![Build Status](https://travis-ci.org/tcthien/code-lab.svg?branch=master)](https://travis-ci.org/tcthien/code-lab)
 <a href="https://scan.coverity.com/projects/tcthien-code-lab">
   <img alt="Coverity Scan Build Status"
