@@ -4,8 +4,13 @@ services:
     image: rabbitmq:3-management
     restart: always
     ports:
-      - 15672:15672
+    - 15672:15672
     logging:
       options:
-        max-size: "10m"
-        max-file: "10"
+        max-size: 10m
+        max-file: '10'
+        
+  auth-mongodb:
+    build: mongodb
+    ports:
+    - 25000:27017
